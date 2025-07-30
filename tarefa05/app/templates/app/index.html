@@ -19,13 +19,15 @@
         <div class="col-2 text-center">Prazo</div>
       </h6>
       <ul class="list-group">
+        {% for tarefa in tarefas %}
         <li class="list-group-item d-flex p-0 align-items-center">
-          <div class="col-8 p-2 ps-3">Tarefa01</div>
+          <div class="col-8 p-2 ps-3">{{ tarefa.nome }}</div>
           <div class="col-2 text-center">
-            <span class="badge text-bg-success">Concluído</span>
+            <span class="badge text-bg-success">{{ tarefa.status }}</span>
           </div>
-          <div class="col-2 text-center">12/06/2025</div>
+          <div class="col-2 text-center">{{ tarefa.prazo|date:"d/m/Y" }}</div>
         </li>
+        {% endfor %}
       </ul>
     </main>
 
