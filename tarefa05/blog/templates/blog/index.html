@@ -1,0 +1,19 @@
+{% extends "blog/base.html" %} {% block titulo %}Bem-vindo ao Blog{% endblock titulo %} {% block subtitulo %}Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut pharetra imperdiet elit, at tristique enim. Nullam scelerisque urna a luctus
+imperdiet. Pellentesque ac quam eros.{% endblock subtitulo %} {% block content %} {% if postagens %} {% for postagem in postagens %}
+<div class="card mb-3">
+  <div class="row g-0">
+    <div class="col-md-4">
+      <img src="{{ postagem.imagem.url }}" class="img-fluid rounded-start h-100" />
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title">{{ postagem.titulo }}</h5>
+        <p class="card-text">{{ postagem.texto }}</p>
+        <p class="card-text"><small class="text-body-secondary">{{ postagem.data_publicacao|date:"d/m/Y" }}</small></p>
+      </div>
+    </div>
+  </div>
+</div>
+{% endfor %} {% else %}
+<p class="text-danger p-0">Não há postagens cadastradas.</p>
+{% endif %} {% endblock content %}

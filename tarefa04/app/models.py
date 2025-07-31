@@ -8,8 +8,9 @@ class Tarefa(models.Model):
     status_tarefa = [
         (CONCLUIDA, "Concluída"), (EM_ANDAMENTO, "Em andamento"), (PENDENTE, "Pendente")
     ]
-    nome = models.CharField("Nome", max_length = 100)
-    status = models.CharField("Status", choices = status_tarefa, default=PENDENTE)
+    
+    nome = models.CharField("Nome", max_length=100)
+    status = models.CharField("Status", choices=status_tarefa, default=PENDENTE)
     prazo = models.DateField("Prazo")
 
     def __str__(self):

@@ -1,0 +1,21 @@
+.navbar-brand,
+h5,
+h1 {
+  font-family: "Playfair Display", serif;
+  font-weight: 700 !important;
+}
+.navbar-brand {
+  font-size: 36px;
+}
+
+h5 {
+  font-size: 28px;
+}
+
+.nav-item {
+  font-weight: 600;
+}
+
+.nav-link {
+  padding: 2px;
+}
