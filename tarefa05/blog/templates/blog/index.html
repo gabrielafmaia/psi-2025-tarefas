@@ -9,7 +9,6 @@
       <div class="card-body">
         <h5 class="card-title">{{ postagem.titulo }}</h5>
         <p class="text-body-secondary">{{ postagem.data_publicacao|date:"d/m/Y" }}</p>
-        <p class="card-text">{{ postagem.texto }}</p>
       </div>
       <div class="card-footer font-weight-bold"><a href="{% url 'post' postagem.id %}">Continuar lendo</a></div>
     </div>
