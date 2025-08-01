@@ -2,9 +2,9 @@ from django.db import models
 
 class Postagem(models.Model):
     imagem = models.ImageField(upload_to="imagem/")
-    texto = models.CharField()
+    texto = models.TextField()
     titulo = models.CharField(max_length=200)
-    data_publicacao = models.DateField(max_length=10000)
+    data_publicacao = models.DateField()
 
     def __str__(self):
         return self.titulo
