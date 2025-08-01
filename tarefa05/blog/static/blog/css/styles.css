@@ -1,21 +1,29 @@
-.navbar-brand,
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+body {
+  display: flex;
+  flex-direction: column;
+}
+main {
+  flex: 1;
+}
+
 h5,
-h1 {
-  font-family: "Playfair Display", serif;
-  font-weight: 700 !important;
-}
+h1,
 .navbar-brand {
-  font-size: 36px;
+  font-family: "Playfair Display", serif;
+  font-size: 30px;
+  font-weight: 700;
 }
 
-h5 {
-  font-size: 28px;
+.navbar-brand {
+  font-style: italic;
+  font-size: 35px;
 }
 
-.nav-item {
-  font-weight: 600;
-}
-
-.nav-link {
-  padding: 2px;
+a {
+  text-decoration: none !important;
 }

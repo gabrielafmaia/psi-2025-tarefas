@@ -1,0 +1,14 @@
+{% extends "blog/base.html" %} 
+{% block title %}{{ postagem.titulo }}{% endblock title %}
+{% block content %}
+<section>
+    <div class="text-center mb-4">
+        <h1>{{ postagem.titulo }}</h1>
+        <p>{{ postagem.data_publicacao|date:"d/m/Y" }}</p>
+    </div>
+    <div class="text-center mb-4">
+        <img src="{{ postagem.imagem.url }}" class="img-fluid" style="width: 700px;">
+    </div>
+    <p class="m-0">{{ postagem.texto }}</p>
+</section>
+{% endblock content %}

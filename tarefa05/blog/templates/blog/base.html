@@ -1,56 +1,41 @@
 {% load static %}
-
 <!DOCTYPE html>
 <html lang="pt-BR">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Blog</title>
+    <title>{{ blog.titulo }} | {% block title %}{% endblock title %}</title>
+    <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous" />
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" />
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet" />
+    <!-- Core theme CSS -->
     <link href="{% static 'blog/css/styles.css' %}" rel="stylesheet" />
   </head>
   <body>
-    {% for blog in blogs %}
-    <header class="navbar navbar-expand-lg container">
-      <div class="col-12 text-center">
-        <a class="navbar-brand blog-header-logo text-dark" href="{% url 'index' %}">{{ blog.titulo }}</a>
+    <header class="container navbar navbar-expand-lg border-bottom pt-5 pb-0 mb-5">
+      <div class="container">
+        <a class="navbar-brand" href="{% url 'index' %}">{{ blog.titulo }}</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav ms-auto">
+            <a class="nav-link" aria-current="page" href="{% url 'index' %}"><i class="bi bi-house-door me-1"></i>Home</a>
+          </div>
+        </div>
       </div>
     </header>
-    
-    <nav class="navbar navbar-expand-lg border-bottom border-top container">
-      <div class="col-12 text-center">
-        <ul class="navbar-nav">
-          <li class="nav-item col text-center">
-            <a class="nav-link active" aria-current="page" href="{% url 'index' %}">Home</a>
-          </li>
-          <li class="nav-item col text-center">
-            <a class="nav-link" href="{% url 'sobre' %}">Sobre</a>
-          </li>
-          <li class="nav-item col text-center">
-            <a class="nav-link" href="{% url 'contato' %}">Contato</a>
-          </li>
-        </ul>
-      </div>
-    </nav>
-
-    <div class="p-4 p-md-5 rounded text-body-emphasis bg-danger mt-3 container">
-      <div class="col-lg-6 px-0">
-        <h1 class="display-4 fst-italic">{% block titulo %}{% endblock titulo %}</h1>
-        <p class="lead my-3">{% block subtitulo %}{% endblock subtitulo %}</p>
-      </div>
-    </div>
-    <main class="mb-4 mt-4 container p-0">{% block content %}{% endblock content %}</main>
-
-    <footer class="py-5 text-center bg-body-tertiary">
-      <p class="small">{{ blog.copyright }}</p>
-      <p class="mb-0"><a href="#" class="text-black">Back to top</a></p>
+    <main class="container p-0">{% block content %}{% endblock content %}</main>
+    <footer class="container-fluid py-4 text-center bg-body-tertiary mt-5">
+      <p class="small m-0">{{ blog.copyright }}</p>
     </footer>
 
-    <!-- JS Bootstrap -->
+    <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
-    {% endfor %}
   </body>
 </html>

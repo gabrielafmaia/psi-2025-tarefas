@@ -1,19 +1,22 @@
-{% extends "blog/base.html" %} {% block titulo %}Bem-vindo ao Blog{% endblock titulo %} {% block subtitulo %}Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut pharetra imperdiet elit, at tristique enim. Nullam scelerisque urna a luctus
-imperdiet. Pellentesque ac quam eros.{% endblock subtitulo %} {% block content %} {% if postagens %} {% for postagem in postagens %}
-<div class="card mb-3">
-  <div class="row g-0">
-    <div class="col-md-4">
-      <img src="{{ postagem.imagem.url }}" class="img-fluid rounded-start h-100" />
-    </div>
-    <div class="col-md-8">
+{% extends "blog/base.html" %} 
+{% block title %}Home{% endblock title %}
+{% block content %} 
+{% if postagens %}
+<section class="row row-cols-1 row-cols-md-2 g-4">
+  {% for postagem in postagens %}
+  <div class="col">
+    <div class="card h-100">
       <div class="card-body">
         <h5 class="card-title">{{ postagem.titulo }}</h5>
+        <p class="text-body-secondary">{{ postagem.data_publicacao|date:"d/m/Y" }}</p>
         <p class="card-text">{{ postagem.texto }}</p>
-        <p class="card-text"><small class="text-body-secondary">{{ postagem.data_publicacao|date:"d/m/Y" }}</small></p>
       </div>
+      <div class="card-footer font-weight-bold"><a href="{% url 'post' postagem.id %}">Continuar lendo</a></div>
     </div>
   </div>
-</div>
-{% endfor %} {% else %}
+  {% endfor %}
+</section>
+{% else %}
 <p class="text-danger p-0">Não há postagens cadastradas.</p>
-{% endif %} {% endblock content %}
+{% endif %} 
+{% endblock content %}
